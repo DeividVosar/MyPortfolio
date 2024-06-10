@@ -10,29 +10,57 @@ body {
 header {
     background: #333;
     color: #fff;
-    padding: 1rem 0;
-    text-align: center;
+    padding: 1rem 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.header-content {
+    margin-bottom: 1rem;
+}
+
+header h1 {
+    margin: 0;
+    font-size: 2rem;
+}
+
+header p {
+    margin: 0;
+    font-size: 1.2rem;
 }
 
 nav ul {
     list-style: none;
     padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
 }
 
 nav ul li {
-    display: inline;
-    margin-right: 10px;
+    margin-bottom: 0.5rem;
 }
 
 nav ul li a {
     text-decoration: none;
-    color: #333;
+    color: #fff;
+    font-size: 1rem;
+    transition: color 0.3s;
+}
+
+nav ul li a:hover {
+    color: #aaa;
+}
+
+main {
+    padding: 2rem;
 }
 
 section {
-    padding: 2rem;
     margin: 2rem 0;
     background: #fff;
+    padding: 2rem;
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
