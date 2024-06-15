@@ -449,6 +449,10 @@ footer {
     place-content: center;
 }
 
+.interests-info::before {
+    content:"(Im hidden - Hover over me)"
+}
+
 .left-column, .right-column {
     flex: 1;
     display: flex;
@@ -543,11 +547,11 @@ footer {
 .mobile-menu {
     display: none; /* Hidden by default */
     flex-direction: column;
-    background: #222;
+    background: #111;
     width: 100%;
     padding: 10px 0;
     position: absolute;
-    top: 7rem;
+    top: 7.27rem;
     left: 0;
 }
 
@@ -605,6 +609,9 @@ footer {
         margin-top:13rem;
     }
 
+    .interests-info::before {
+        content:"(Im hidden - Click me)"
+    }
     .content {
         margin-left: 0px;
         padding: 0rem 0.5rem 0rem 0.5rem;
