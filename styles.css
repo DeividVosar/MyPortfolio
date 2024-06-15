@@ -641,7 +641,7 @@ footer h2 {
 /* Ensure the top-nav and mobile menu are hidden in larger views */
 @media (min-width: 769px) {
 
-    footer {
+    .footer {
         display: none !important;
     }
 
