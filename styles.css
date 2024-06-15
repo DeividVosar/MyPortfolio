@@ -1,46 +1,58 @@
 body {
-    font-family: 'Arial', sans-serif; 
+    font-family: 'Roboto', sans-serif;
     line-height: 1.6;
     margin: 0;
     padding: 0;
-    background-color: #1c1c1c; 
-    color: #fff; 
+    background-color: #1c1c1c;
+    color: #fff;
     display: flex;
-    flex-direction: column;
     height: 100vh;
     overflow: hidden;
 }
 
 .container {
     display: flex;
+    width: 100%;
     height: 100vh;
-    overflow: hidden;
 }
 
 .sidebar {
-    background: #111; 
-    color: #fff; 
+    background: #111;
+    color: #fff;
     padding: 110px 40px 2px 30px;
     width: 250px;
-    display: flex;
-    flex-direction: column;
     position: fixed;
     height: 100%;
     border-right: 2px solid #e60000;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 
 .header-content {
     margin-bottom: 2rem;
 }
 
-.sidebar h1 {
+.header-content h1 {
     margin: 0;
-    font-size: 2rem;
+    font-size: 2.5rem;
+    font-family: 'Roboto Slab', serif;
+}
+
+.header-content .subtitle {
+    margin: 0;
+    font-size: 1.2rem;
+    color: #b0b0b0;
+}
+
+.header-content .motto {
+    margin: 0;
+    font-size: 0.9rem;
+    color: #fff;
 }
 
 .sidebar p {
     margin: 0;
-    font-size: 1.2rem;
 }
 
 nav ul {
@@ -58,57 +70,94 @@ nav ul li {
 
 nav ul li a {
     text-decoration: none;
-    color: #e60000; 
+    color: #e60000;
     font-size: 1rem;
     transition: color 0.3s, padding-left 0.3s;
-    padding-left: 0; /* Initial padding-left */
+    padding-left: 0;
     display: inline-block;
     position: relative;
+}
+
+nav ul li a i {
+    margin-right: 15px;
 }
 
 nav ul li a::before {
     content: '';
     position: absolute;
-    left: -20px; /* Start the line 20px to the left of the text */
+    left: -20px;
     bottom: 50%;
-    width: 0; /* Initial width of the underline */
-    height: 2px; /* Thickness of the underline */
-    background-color: #ff3333; /* Color of the underline */
+    width: 0;
+    height: 2px;
+    background-color: #ff3333;
     transition: width 0.3s, left 0.3s;
 }
 
 nav ul li a:hover::before,
-nav ul li a:focus::before {
-    width: 20px; /* Full width on hover */
-}
-
+nav ul li a:focus::before,
 nav ul li a.active::before {
-    width: 20px; /* Full width for the active link */
+    width: 20px;
+    left: -20px;
 }
 
 nav ul li a:hover,
-nav ul li a:focus {
-    color: #ff3333; /* Lighter red on hover */
-    padding-left: 20px; /* Push text to the right on hover */
+nav ul li a:focus,
+nav ul li a.active {
+    color: #ff3333;
+    padding-left: 20px;
 }
 
 .content {
-    margin-left: 310px;
-    padding: 2rem;
+    margin-left: 250px;
+    padding: 3rem 2rem 0rem 6.5rem;
     overflow-y: auto;
     flex: 1;
-    background-color: #2e2e2e; 
-    color: #fff; 
-    border-radius: 8px; 
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); 
+    height: 100vh;
+    background-color: #2e2e2e;
+    color: #fff;
 }
 
 section {
     margin: 2rem 0;
-    background: #222222; 
+    background: #222222;
     padding: 2rem;
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+section h2 {
+    font-family: 'Roboto Slab', serif;
+}
+
+.contact-info {
+    margin-top: auto;
+    padding: 10px 10px 200px 10px;
+    background: #111;
+    border-top: 1px solid #444;
+}
+
+.contact-info h2 {
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+}
+
+.contact-info p {
+    margin: 0.5rem 0;
+}
+
+.contact-info p i {
+    margin-right: 10px;
+}
+
+.contact-info p a {
+    color: #fff;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.contact-info p a:hover {
+    color: #ff3333;
+    text-decoration: underline;
 }
 
 footer {
@@ -117,3 +166,478 @@ footer {
     background: #111;
     color: #fff;
 }
+
+/* Styles for the About Me section */
+#about {
+    position: relative;
+    margin: 2rem 0;
+    background: #222222;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+#about h2 {
+    font-family: 'Roboto Slab', serif;
+    margin-bottom: 1rem;
+    color: #fff;
+}
+
+.about-content {
+    position: relative;
+    color: #bbb;
+}
+
+.about-content .duckie-wrapper {
+    float: right;
+    width: 20rem; /* Adjust the width as needed */
+    height: auto;
+    margin: -11rem -2rem 0rem 1rem; /* Adjust the margins as needed */
+}
+
+.about-content .duckie {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.about-content p {
+    font-family: 'Roboto', sans-serif;
+    line-height: 1.6;
+    text-align: justify;
+    margin: 0 0 1rem 0;
+}
+
+.about-content p:first-child {
+    margin-top: 0;
+}
+
+/* Education */
+#education {
+    margin: 2rem 0;
+    background: #222222;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+#education h2 {
+    font-family: 'Roboto Slab', serif;
+    width: 100%;
+    margin-bottom: 1rem;
+}
+
+.education-container {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.education-item {
+    background: #333;
+    padding: 1rem;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.education-item h3 {
+    font-family: 'Roboto Slab', serif;
+    margin-bottom: 0.5rem;
+}
+
+.education-item p {
+    margin: 0.25rem 0;
+}
+
+.education-item i {
+    font-style: italic;
+    color: #bbb;
+}
+
+/* Experience Section Styles */
+#experience {
+    margin: 2rem 0;
+    background: #222222;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+#experience h2 {
+    font-family: 'Roboto Slab', serif;
+    margin-bottom: 1rem;
+    color: #fff;
+}
+
+/* Timeline styles */
+.timeline {
+    position: relative;
+    margin: 2rem 0;
+    padding: 2rem;
+    border-left: 2px solid #e60000;
+}
+
+.timeline-item {
+    position: relative;
+    padding-left: 2rem;
+    margin-bottom: 2rem;
+    opacity: 0;
+    transition: opacity 1s ease, transform 1s ease;
+    transform: translateY(20px);
+}
+
+.timeline-item.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.timeline-item::before {
+    content: '';
+    position: absolute;
+    left: -2.66rem;
+    top: 3.2rem;
+    width: 16px;
+    height: 16px;
+    background: #e60000;
+    border-radius: 50%;
+    border: 2px solid #fff;
+    box-shadow: 0 0 0 2px #e60000;
+}
+
+.timeline-content {
+    background: #333;
+    padding: 1rem;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.timeline-content h3 {
+    margin-top: 0;
+    margin-bottom: 0.5rem;
+    font-family: 'Roboto Slab', serif;
+    color: #fff;
+}
+
+.timeline-content p {
+    color: #bbb;
+}
+
+/* Bubble animation styles */
+.super-box {
+    width: 220px;
+    height: 220px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin: 1rem;
+    position: relative;
+}
+
+.SBcontainer {
+    width: 220px;
+    height: 220px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.box {
+    position: absolute;
+    width: 220px;
+    height: 220px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    border-radius: 3px;
+    overflow: hidden;
+    transition: box-shadow ease 1s;
+}
+
+.icon {
+    position: relative;
+    margin-top: 8px;
+    transition: all 0.6s ease;
+    transition-delay: 0.32s;
+    will-change: transform;
+    font-size: 2rem;
+}
+
+.icon_bg {
+    width: 80px;
+    height: 80px;
+    border-radius: 100%;
+    border: 1px solid rgba(225, 227, 232, 0.18);
+    box-shadow: 0 3px 4px 0 rgba(44, 71, 146, 0.25);
+    background-color: #111;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: all 0.6s ease;
+    transition-delay: 0.32s;
+    will-change: transform;
+}
+
+.title {
+    position: relative;
+    top: -32px;
+    width: 200px;
+    text-align: center;
+    transition: all 0.4s ease;
+    transition-delay: 0.32s;
+}
+
+.super-box:hover .box {
+    box-shadow: 0 3px 4px 0 rgba(44, 71, 146, 0.25);
+    transition-delay: 0.32s;
+}
+
+.super-box:hover .icon_bg {
+    transform: translateY(-110px) scale(6);
+}
+
+.super-box:hover .icon {
+    transform: translateY(-110px) scale(1.4);
+}
+
+.super-box:hover .title {
+    opacity: 0;
+    transform: translateY(-4px) scale(.8);
+}
+
+.box::after {
+    content: attr(data-hover-text);
+    position: absolute;
+    width: 170px;
+    top: 40px;
+    opacity: 0;
+    font-size: 13px;
+    color: #b0b0b0;
+    line-height: 20px;
+    transition: all 0.3s ease;
+    transition-delay: 0.32s;
+}
+
+.super-box:hover .box::after {
+    opacity: 1;
+}
+
+/* Additional Information Section Styles */
+#additional-information {
+    margin: 2rem 0;
+    background: #222222;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+#additional-information h2 {
+    font-family: 'Roboto Slab', serif;
+    width: 100%;
+    margin-bottom: 1rem;
+}
+
+.info-container {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.interests-container {
+    display: flex;
+    flex-wrap: wrap;
+    place-content: center;
+}
+
+.left-column, .right-column {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.info-box {
+    background: #333;
+    padding: 1rem;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin-bottom: 1rem;
+    flex: 1;
+}
+
+.interests-box, .skills-box, .language-box, .certifications-box {
+    flex: 1;
+    margin-right: 1rem;
+    margin-left: 1rem;
+}
+
+/* Language section styles */
+.language-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.language-list li {
+    display: flex;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.language-name {
+    width: 120px;
+    margin-right: 10px;
+    color: #fff;
+}
+
+.language-bar {
+    flex: 1;
+    background: #444;
+    border-radius: 5px;
+    overflow: hidden;
+    position: relative;
+    height: 10px;
+}
+
+.language-level {
+    height: 100%;
+    background: #e60000;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+/* Styles for the mobile navigation bar */
+.top-nav {
+    display: none; /* Hidden by default */
+    width: 100%;
+    background: #111;
+    padding: 10px 0;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    border-bottom: 2px solid #e60000;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.top-nav h1 {
+    margin-left:1rem;
+}
+
+.mobile-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 10px;
+}
+
+#hamburger-icon {
+    font-size: 1.5rem;
+    color: #fff;
+    cursor: pointer;
+}
+
+.mobile-menu {
+    display: none; /* Hidden by default */
+    flex-direction: column;
+    background: #222;
+    width: 100%;
+    padding: 10px 0;
+    position: absolute;
+    top: 7rem;
+    left: 0;
+}
+
+
+.mobile-menu a {
+    color: #fff;
+    padding: 10px 20px;
+    text-decoration: none;
+    font-family: 'Roboto', sans-serif;
+}
+
+.mobile-menu a i {
+    margin-right: 1rem;
+}
+
+.mobile-menu a:hover,
+.mobile-menu a.active {
+    background: #333;
+    color: #e60000;
+}
+
+.mobile-info {
+    margin-top: auto;
+    padding: 2rem;
+}
+
+.mobile-info i {
+    margin-right: 1rem;
+}
+
+.mobile-info a {
+    color: #fff;
+}
+
+
+/* Show the top navigation bar in mobile view */
+@media (max-width: 768px) {
+    .sidebar {
+        display: none; /* Hide the sidebar in mobile view */
+    }
+
+    .top-nav {
+        display: flex;
+    }
+
+    #additional-information {
+        padding: 0rem;
+    }
+
+    #additional-information h2 {
+        padding:1rem 0rem 0rem 1rem;
+    }
+
+    #about {
+        margin-top:13rem;
+    }
+
+    .content {
+        margin-left: 0px;
+        padding: 0rem 0.5rem 0rem 0.5rem;
+    }
+    
+    .mobile-menu.show {
+        display: flex;
+    }
+
+}
+
+/* Ensure the top-nav and mobile menu are hidden in larger views */
+@media (min-width: 769px) {
+    .top-nav {
+        display: none;
+    }
+
+    .mobile-menu {
+        display: none !important;
+    }
+
+    .mobile-info{
+        display:none;
+    }
+
+}
+
+/* Fixing the duckie fuckie */
+@media (max-width: 1000px) {
+
+    .duckie-wrapper{
+        width: 11rem !important;
+        margin: -180px -35px 0rem 1rem !important;
+    }
+}
+
