@@ -601,7 +601,7 @@ footer h2 {
 @media (max-width: 768px) {
 
     .footer {
-        display: block !important;
+        display: block;
     }
 
     .sidebar {
@@ -642,7 +642,7 @@ footer h2 {
 @media (min-width: 769px) {
 
     footer {
-        display: none;
+        display: none !important;
     }
 
     .top-nav {
