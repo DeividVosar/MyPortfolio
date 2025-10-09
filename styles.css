@@ -194,9 +194,9 @@ footer h2 {
 
 .about-content .duckie-wrapper {
     float: right;
-    width: 20rem; /* Adjust the width as needed */
+    width: 20rem; 
     height: auto;
-    margin: -11rem -2rem 0rem 1rem; /* Adjust the margins as needed */
+    margin: -8rem -2rem 0rem 1rem; 
 }
 
 .about-content .duckie {
@@ -609,7 +609,7 @@ footer h2 {
     }
 
     .sidebar {
-        display: none; /* Hide the sidebar in mobile view */
+        display: none; /* Hides the sidebar in mobile view */
     }
 
     .top-nav {
