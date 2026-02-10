@@ -476,19 +476,6 @@ footer h2 {
     margin-bottom: 1rem;
 }
 
-/* Links at the projects box (prevents the default purple visited color) */
-.info-box a,
-.info-box a:visited {
-    color: #ff3333;
-    text-decoration: none;
-}
-
-.info-box a:hover,
-.info-box a:focus {
-    color: #fff;
-    text-decoration: underline;
-}
-
 .interests-box, .skills-box, .language-box, .certifications-box {
     flex: 1;
     margin-right: 1rem;
@@ -705,4 +692,17 @@ footer h2 {
 #projects .info-box {
     flex: 1;                
     margin: 0.5rem;              
+}
+
+/* Links at the projects box (prevents the default purple visited color) */
+.info-box a,
+.info-box a:visited {
+    color: #e60000;
+    text-decoration: none;
+}
+
+.info-box a:hover,
+.info-box a:focus {
+    color: #fff;
+    text-decoration: underline;
 }
