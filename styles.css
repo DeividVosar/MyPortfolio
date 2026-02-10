@@ -449,6 +449,7 @@ footer h2 {
 .info-container {
     display: flex;
     flex-wrap: wrap;
+    gap: 1rem;
 }
 
 .interests-container {
@@ -473,7 +474,19 @@ footer h2 {
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     margin-bottom: 1rem;
-    flex: 1;
+}
+
+/* Links at the projects box (prevents the default purple visited color) */
+.info-box a,
+.info-box a:visited {
+    color: #ff3333;
+    text-decoration: none;
+}
+
+.info-box a:hover,
+.info-box a:focus {
+    color: #fff;
+    text-decoration: underline;
 }
 
 .interests-box, .skills-box, .language-box, .certifications-box {
@@ -676,3 +689,20 @@ footer h2 {
     }
 }
 
+/* Projects layout: consistent gap + equal-height cards */
+#projects .info-container {
+    gap: 2rem;              
+    align-items: stretch;   
+}
+
+#projects .left-column,
+#projects .right-column {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+#projects .info-box {
+    flex: 1;                
+    margin: 0.5rem;              
+}
