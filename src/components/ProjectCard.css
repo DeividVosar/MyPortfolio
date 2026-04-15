@@ -1,0 +1,92 @@
+.project-card {
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 24px;
+  margin-bottom: 14px;
+  transition: border-color 0.2s, transform 0.2s;
+}
+.project-card:hover {
+  border-color: var(--accent);
+  transform: translateY(-2px);
+}
+
+.project-card-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 8px;
+}
+
+.project-title {
+  font-family: var(--display);
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--text);
+  margin-bottom: 3px;
+}
+.project-subtitle {
+  font-size: 12px;
+  color: var(--muted);
+}
+
+.project-description {
+  font-size: 13px;
+  color: var(--muted);
+  line-height: 1.75;
+  margin-bottom: 14px;
+}
+
+.project-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-bottom: 14px;
+}
+.project-card:not(:has(.project-links)) .project-tags {
+  margin-bottom: 0;
+}
+
+.project-tag {
+  font-family: var(--mono);
+  font-size: 11px;
+  color: var(--accent);
+  background: rgba(230, 0, 0, 0.08);
+  border: 1px solid rgba(230, 0, 0, 0.19);
+  padding: 2px 8px;
+  border-radius: 4px;
+}
+
+.project-links {
+  display: flex;
+  gap: 14px;
+}
+.project-link {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 12px;
+  color: var(--muted);
+  text-decoration: none;
+  transition: color 0.18s;
+}
+.project-link:hover { color: var(--accent); }
+
+/* Status pill in the top-right corner of a card. */
+.status-pill {
+  font-family: var(--mono);
+  font-size: 10px;
+  padding: 3px 10px;
+  border-radius: 20px;
+  flex-shrink: 0;
+}
+.status-pill.is-live {
+  background: #0d1f14;
+  color: #4caf72;
+  border: 1px solid #1a3a24;
+}
+.status-pill.is-soon {
+  background: #1a1510;
+  color: var(--accent);
+  border: 1px solid #3a2a10;
+}

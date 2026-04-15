@@ -1,0 +1,33 @@
+.tag-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.tag {
+  font-family: var(--mono);
+  font-size: 12px;
+  padding: 5px 11px;
+  border-radius: 6px;
+  cursor: default;
+  transition: all 0.18s;
+  background: var(--dim);
+  color: var(--sub);
+  border: 1px solid var(--border);
+}
+.tag:hover {
+  background: var(--accent);
+  color: var(--bg);
+  border-color: var(--accent);
+}
+
+/* Accent variant — red-tinted, used for the Programming group. */
+.tag.is-accent {
+  background: rgba(230, 0, 0, 0.09);
+  color: var(--accent);
+  border-color: rgba(230, 0, 0, 0.2);
+}
+.tag.is-accent:hover {
+  background: var(--accent);
+  color: var(--bg);
+}

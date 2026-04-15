@@ -1,0 +1,71 @@
+.nav-rail {
+  width: 64px;
+  background: var(--panel);
+  border-left: 1px solid var(--border);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 48px;
+  gap: 6px;
+  flex-shrink: 0;
+}
+
+.nav-btn {
+  position: relative;
+  width: 44px;
+  height: 44px;
+  border: none;
+  border-left: 2px solid transparent;
+  border-radius: 10px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  color: var(--muted);
+  transition: all 0.18s;
+}
+.nav-btn:hover {
+  background: #1a1c22;
+  color: var(--accent);
+}
+.nav-btn.is-active {
+  background: #1a1c22;
+  color: var(--accent);
+  border-left-color: var(--accent);
+}
+
+/* Tooltip — floats left of the icon on hover.
+ * Arrow on the right side pointing at the button. */
+.nav-tooltip {
+  position: absolute;
+  right: calc(100% + 10px);
+  top: 50%;
+  transform: translateY(-50%) translateX(4px);
+  background: var(--accent);
+  color: var(--bg);
+  font-family: var(--body);
+  font-size: 12px;
+  font-weight: 500;
+  padding: 5px 11px;
+  border-radius: 6px;
+  white-space: nowrap;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.18s ease, transform 0.18s ease;
+}
+
+.nav-tooltip::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 100%;
+  transform: translateY(-50%);
+  border: 5px solid transparent;
+  border-left-color: var(--accent);
+}
+
+.nav-btn:hover .nav-tooltip {
+  opacity: 1;
+  transform: translateY(-50%) translateX(0);
+}

@@ -1,0 +1,6 @@
+/* tiny reset, real styles are in App.css */
+
+html, body {
+  margin: 0;
+  padding: 0;
+}

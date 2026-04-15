@@ -1,0 +1,16 @@
+/* all the colors and fonts */
+
+:root {
+  --accent: #e60000;
+  --bg: #0c0e12;
+  --panel: #111318;
+  --border: #1e2028;
+  --text: #e2dfd8;
+  --muted: #5e5e68;
+  --dim: #2e2e38;
+  --sub: #9a9aa5;
+
+  --display: 'Syne', sans-serif;
+  --body: 'DM Sans', sans-serif;
+  --mono: 'JetBrains Mono', monospace;
+}

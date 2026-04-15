@@ -1,0 +1,16 @@
+.resume-subhead {
+  font-family: var(--display);
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--muted);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  margin-bottom: 22px;
+}
+
+/* horizontal line between Education and Experience */
+.resume-divider {
+  height: 1px;
+  background: var(--border);
+  margin: 32px 0;
+}

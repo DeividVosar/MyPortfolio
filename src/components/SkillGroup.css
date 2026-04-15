@@ -1,0 +1,12 @@
+.skill-group {
+  margin-bottom: 28px;
+}
+
+.skill-group-title {
+  font-family: var(--mono);
+  font-size: 11px;
+  color: var(--accent);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  margin-bottom: 12px;
+}
