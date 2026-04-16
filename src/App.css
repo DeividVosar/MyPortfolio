@@ -12,9 +12,11 @@ body {
   font-family: var(--body);
   color: var(--text);
   background: var(--bg);
+  /* default to left so nothing inherits center alignment from anywhere */
   text-align: left;
 }
 
+/* center the whole app card on the screen */
 #root {
   min-height: 100vh;
   display: grid;
@@ -27,7 +29,9 @@ body {
 ::-webkit-scrollbar-track { background: transparent; }
 ::-webkit-scrollbar-thumb { background: #2a2a32; border-radius: 2px; }
 
-/* the main app card - sidebar + content + nav rail all live inside */
+/* the main app card - sidebar + content + nav rail all live inside this
+   --app-zoom scales everything inside up for bigger screens
+   bump it up/down if it feels off */
 .app-shell {
   --app-zoom: 1.3;
   zoom: var(--app-zoom);
@@ -51,7 +55,9 @@ body {
   align-items: center;
 }
 
-/* the section content sits inside this */
+/* the section content sits inside this
+   padding-bottom would normally go on .app-main but scroll containers
+   eat their own bottom padding when content overflows (annoying browser thing) */
 .app-fade {
   width: 100%;
   max-width: 760px;
@@ -63,4 +69,32 @@ body {
 .app-fade.is-visible {
   opacity: 1;
   transform: translateY(0);
+}
+
+/* ===== MOBILE STUFF ===== */
+/* below 900px:
+   - kill the zoom (already cramped, dont need to scale up)
+   - drop the card framing (let the app fill the screen)
+   - smaller padding so content actually has room to breathe
+   - the sidebar + nav rail are still there for now, they get fixed in batches 2 + 3 */
+@media (max-width: 900px) {
+  #root {
+    padding: 0;
+  }
+
+  .app-shell {
+    --app-zoom: 1;
+    /* stack vertically so content is on top, nav bar on bottom */
+    flex-direction: column;
+    width: 100%;
+    max-width: none;
+    height: 100vh;
+    max-height: none;
+    border-radius: 0;
+    border: none;
+  }
+
+  .app-main {
+    padding: 32px 20px;
+  }
 }

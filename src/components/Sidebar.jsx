@@ -1,10 +1,11 @@
+import { useState } from "react";
 import { Icon } from "./Icons";
 import { profile, contacts, socials } from "../data/profile";
 import "./Sidebar.css";
 
-// left sidebar - avatar, name, contact rows, socials, status badge
-// each contact row and social link is its own component so the hover state
-// stays clean (cant use useState inside a .map())
+// left sidebar on desktop, top header bar with hamburger on mobile
+// the hamburger button and the expandable panel are always in the DOM
+// but hidden on desktop via CSS - no media query JS needed
 
 function ContactRow({ icon, text, href }) {
   return (
@@ -30,47 +31,66 @@ function SocialLink({ icon, href }) {
 }
 
 function Sidebar() {
+  const [menuOpen, setMenuOpen] = useState(false);
   const displayName = `${profile.firstName} ${profile.lastName}`;
 
   return (
-    <aside className="sidebar">
+    <aside className={`sidebar ${menuOpen ? "is-open" : ""}`}>
+      {/* top part - always visible on both desktop and mobile */}
       <div className="sidebar-header">
         <img
           src={profile.avatarUrl}
           alt={displayName}
           className="sidebar-avatar"
-          // hide the img if it fails to load instead of showing the broken-image icon
           onError={(e) => { e.currentTarget.style.display = "none"; }}
         />
-        <h2 className="sidebar-name">{displayName}</h2>
-        {/* tagline is an array - one line per item */}
-        <div className="sidebar-tagline">
-          {profile.tagline.map((line, i) => (
-            <p key={i}>{line}</p>
+        <div className="sidebar-header-text">
+          <h2 className="sidebar-name">{displayName}</h2>
+          {/* tagline is an array - shown on desktop, hidden in mobile header */}
+          <div className="sidebar-tagline">
+            {profile.tagline.map((line, i) => (
+              <p key={i}>{line}</p>
+            ))}
+          </div>
+        </div>
+
+        {/* hamburger button - hidden on desktop via CSS */}
+        <button
+          type="button"
+          className="hamburger-btn"
+          onClick={() => setMenuOpen(!menuOpen)}
+          aria-label="Toggle menu"
+        >
+          <span className="hamburger-line" />
+          <span className="hamburger-line" />
+          <span className="hamburger-line" />
+        </button>
+      </div>
+
+      {/* everything below here: always visible on desktop,
+          slides open on mobile when hamburger is tapped */}
+      <div className="sidebar-details">
+        <div className="sidebar-divider" />
+
+        <div className="sidebar-contacts">
+          {contacts.map((c, i) => (
+            <ContactRow key={i} {...c} />
           ))}
         </div>
-      </div>
 
-      <div className="sidebar-divider is-tight" />
+        <div className="sidebar-divider" />
 
-      <div className="sidebar-contacts">
-        {contacts.map((c, i) => (
-          <ContactRow key={i} {...c} />
-        ))}
-      </div>
+        <div className="sidebar-socials">
+          {socials.map((s, i) => (
+            <SocialLink key={i} {...s} />
+          ))}
+        </div>
 
-      <div className="sidebar-divider" />
-
-      <div className="sidebar-socials">
-        {socials.map((s, i) => (
-          <SocialLink key={i} {...s} />
-        ))}
-      </div>
-
-      <div className="sidebar-status">
-        <div className="status-badge">
-          <div className="status-dot" />
-          <span className="status-text">{profile.status}</span>
+        <div className="sidebar-status">
+          <div className="status-badge">
+            <div className="status-dot" />
+            <span className="status-text">{profile.status}</span>
+          </div>
         </div>
       </div>
     </aside>

@@ -69,3 +69,37 @@
   opacity: 1;
   transform: translateY(-50%) translateX(0);
 }
+
+/* ===== MOBILE ===== */
+/* bottom tab bar instead of the right-side rail */
+@media (max-width: 900px) {
+  .nav-rail {
+    width: 100%;
+    flex-direction: row;
+    justify-content: space-around;
+    padding: 0;
+    gap: 0;
+    border-left: none;
+    border-top: 1px solid var(--border);
+    /* pin to the bottom of the shell */
+    order: 99;
+    flex-shrink: 0;
+  }
+
+  .nav-btn {
+    /* fill evenly */
+    flex: 1;
+    height: 52px;
+    border-radius: 0;
+    border-left: none;
+    /* active indicator on top instead of the left */
+    border-top: 2px solid transparent;
+  }
+  .nav-btn.is-active {
+    border-left-color: transparent;
+    border-top-color: var(--accent);
+  }
+
+  /* no hover tooltips on touch screens */
+  .nav-tooltip { display: none; }
+}

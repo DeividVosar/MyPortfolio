@@ -1,3 +1,4 @@
+/* ===== DESKTOP ===== */
 .sidebar {
   width: 220px;
   background: var(--panel);
@@ -11,6 +12,11 @@
 .sidebar-header {
   padding: 0 24px;
   margin-bottom: 28px;
+}
+
+/* wrapper around name + tagline so they can go inline with avatar on mobile */
+.sidebar-header-text {
+  /* on desktop this wrapper does nothing, just passes through */
 }
 
 .sidebar-avatar {
@@ -38,9 +44,20 @@
   color: var(--accent);
   letter-spacing: 0.05em;
 }
-/* tighten the spacing when there are multiple tagline lines */
 .sidebar-tagline p {
   line-height: 1.5;
+}
+
+/* hamburger is hidden on desktop */
+.hamburger-btn {
+  display: none;
+}
+
+/* details wrapper - always visible on desktop */
+.sidebar-details {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
 }
 
 .sidebar-divider {
@@ -48,7 +65,6 @@
   background: var(--border);
   margin: 22px 0;
 }
-.sidebar-divider.is-tight { margin-bottom: 22px; margin-top: 0; }
 
 .sidebar-contacts {
   padding: 0 24px;
@@ -111,4 +127,113 @@
   font-family: var(--mono);
   font-size: 10px;
   color: #4caf72;
+}
+
+/* ===== MOBILE ===== */
+@media (max-width: 900px) {
+  .sidebar {
+    width: 100%;
+    border-right: none;
+    border-bottom: 1px solid var(--border);
+    padding: 0;
+    flex-shrink: 0;
+  }
+
+  /* top bar: avatar + name on left, hamburger on right */
+  .sidebar-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px 20px;
+    margin-bottom: 0;
+  }
+
+  .sidebar-avatar {
+    width: 36px;
+    height: 36px;
+    margin-bottom: 0;
+    border-radius: 8px;
+  }
+
+  .sidebar-header-text {
+    flex: 1;
+  }
+
+  .sidebar-name {
+    font-size: 14px;
+    margin-bottom: 0;
+  }
+
+  /* hide tagline in the mobile header bar to keep it compact */
+  .sidebar-tagline {
+    display: none;
+  }
+
+  /* hamburger button - three lines that become an X when open */
+  .hamburger-btn {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 5px;
+    width: 36px;
+    height: 36px;
+    padding: 8px;
+    background: none;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    cursor: pointer;
+    flex-shrink: 0;
+  }
+
+  .hamburger-line {
+    display: block;
+    width: 100%;
+    height: 2px;
+    background: var(--text);
+    border-radius: 1px;
+    transition: all 0.2s ease;
+    transform-origin: center;
+  }
+
+  /* X shape when menu is open */
+  .sidebar.is-open .hamburger-line:nth-child(1) {
+    transform: translateY(7px) rotate(45deg);
+  }
+  .sidebar.is-open .hamburger-line:nth-child(2) {
+    opacity: 0;
+  }
+  .sidebar.is-open .hamburger-line:nth-child(3) {
+    transform: translateY(-7px) rotate(-45deg);
+  }
+
+  /* collapsible details panel */
+  .sidebar-details {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.25s ease;
+    padding: 0 20px;
+  }
+
+  .sidebar.is-open .sidebar-details {
+    /* tall enough to fit everything, the actual height is less */
+    max-height: 400px;
+    padding-bottom: 16px;
+  }
+
+  .sidebar-divider {
+    margin: 14px 0;
+  }
+
+  .sidebar-contacts {
+    padding: 0;
+  }
+
+  .sidebar-socials {
+    padding: 0;
+  }
+
+  .sidebar-status {
+    padding: 0;
+    margin-top: 14px;
+  }
 }
