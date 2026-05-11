@@ -16,15 +16,15 @@
   --mono: 'JetBrains Mono', monospace;
 }
 
-/* light mode overrides — applied by setting data-theme="light" on <html> */
+/* light mode overrides, applied by setting data-theme="light" on <html> */
 [data-theme="light"] {
   --accent: #e60000;
-  --bg: #bdd1e6;      /* soft blue-slate, dark enough to not flashbang */
-  --panel: #d7e4ef;   /* slightly lighter/cooler panel */
+  --bg: #bdd1e6;
+  --panel: #d7e4ef;
   --border: #adc0cf;
-  --text: #14202c;    /* near-black with a blue undertone */
+  --text: #14202c;
   --muted: #5c7888;
-  --dim: #bccedd;     /* tag/button backgrounds */
+  --dim: #bccedd;
   --sub: #334e5e;
   --nav-hover: #b8ccda;
 }

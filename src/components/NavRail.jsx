@@ -20,7 +20,7 @@ function NavButton({ item, isActive, onClick }) {
   );
 }
 
-// theme is "dark" or "light" — tells us which icon to show and what the tooltip says
+// theme is "dark" or "light"
 function NavRail({ active, onNavigate, theme, onThemeToggle }) {
   return (
     <nav className="nav-rail">

@@ -29,7 +29,7 @@ function App() {
   const [active, setActive] = useState("home");
   const [isVisible, setIsVisible] = useState(true);
 
-  // theme state — reads from localStorage on first load, defaults to dark
+  // theme state - reads from localStorage on first load, defaults to dark
   const [theme, setTheme] = useState(
     () => localStorage.getItem("theme") || "dark"
   );
