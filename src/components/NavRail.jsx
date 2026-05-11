@@ -20,7 +20,8 @@ function NavButton({ item, isActive, onClick }) {
   );
 }
 
-function NavRail({ active, onNavigate }) {
+// theme is "dark" or "light" — tells us which icon to show and what the tooltip says
+function NavRail({ active, onNavigate, theme, onThemeToggle }) {
   return (
     <nav className="nav-rail">
       {navItems.map((item) => (
@@ -31,6 +32,19 @@ function NavRail({ active, onNavigate }) {
           onClick={onNavigate}
         />
       ))}
+
+      {/* pushed to the bottom of the rail on desktop via margin-top: auto */}
+      <button
+        type="button"
+        className="nav-btn nav-theme-btn"
+        onClick={onThemeToggle}
+        aria-label="Toggle theme"
+      >
+        <Icon name={theme === "dark" ? "sun" : "moon"} size={18} />
+        <span className="nav-tooltip">
+          {theme === "dark" ? "Light mode" : "Dark mode"}
+        </span>
+      </button>
     </nav>
   );
 }

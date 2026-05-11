@@ -29,6 +29,22 @@ function App() {
   const [active, setActive] = useState("home");
   const [isVisible, setIsVisible] = useState(true);
 
+  // theme state — reads from localStorage on first load, defaults to dark
+  const [theme, setTheme] = useState(
+    () => localStorage.getItem("theme") || "dark"
+  );
+
+  // apply data-theme to <html> so ALL vars update everywhere,
+  // including the tag popover which is portalled outside the app shell
+  useEffect(() => {
+    document.documentElement.setAttribute("data-theme", theme);
+    localStorage.setItem("theme", theme);
+  }, [theme]);
+
+  function toggleTheme() {
+    setTheme((t) => (t === "dark" ? "light" : "dark"));
+  }
+
   // store the fade timeout in a ref
   // (otherwise spam-clicking nav buttons makes the fade go weird)
   const fadeTimer = useRef(null);
@@ -67,7 +83,12 @@ function App() {
         </div>
       </main>
 
-      <NavRail active={active} onNavigate={navigate} />
+      <NavRail
+        active={active}
+        onNavigate={navigate}
+        theme={theme}
+        onThemeToggle={toggleTheme}
+      />
     </div>
   );
 }

@@ -9,8 +9,22 @@
   --muted: #5e5e68;
   --dim: #2e2e38;
   --sub: #9a9aa5;
+  --nav-hover: #1a1c22; /* nav button hover/active bg - separate from --dim */
 
   --display: 'Syne', sans-serif;
   --body: 'DM Sans', sans-serif;
   --mono: 'JetBrains Mono', monospace;
+}
+
+/* light mode overrides — applied by setting data-theme="light" on <html> */
+[data-theme="light"] {
+  --accent: #e60000;
+  --bg: #bdd1e6;      /* soft blue-slate, dark enough to not flashbang */
+  --panel: #d7e4ef;   /* slightly lighter/cooler panel */
+  --border: #adc0cf;
+  --text: #14202c;    /* near-black with a blue undertone */
+  --muted: #5c7888;
+  --dim: #bccedd;     /* tag/button backgrounds */
+  --sub: #334e5e;
+  --nav-hover: #b8ccda;
 }

@@ -16,7 +16,7 @@ export const education = [
   },
   {
     date: "Graduated 2017",
-    place: "Põltsamaa Unified Gymnasium",
+    place: "Põltsamaa Co-educational Gymnasium",
     role: "Secondary Education",
     description: "Additionally completed Business Modules and Pre-vocational Training Course in collaboration with Tartu Vocational Education Center",
   },

@@ -5,7 +5,7 @@ import { skillGroups, extraSkillGroups, languages } from "../data/skills";
 import "./SkillsSection.css";
 
 // skills page
-// order: main groups -> divider -> languages with progress bars -> extra groups
+// order: hint -> main groups -> divider -> languages with progress bars -> extra groups
 // LanguageBar is here because nothing else uses it
 
 function LanguageBar({ lang, level, pct }) {
@@ -26,6 +26,9 @@ function SkillsSection() {
   return (
     <div>
       <SectionLabel text="Skills" />
+
+      {/* tiny hint - only shows up because tags with a desc have a dot on them */}
+      <p className="skills-hint">click boxes with a • for details</p>
 
       {skillGroups.map((group) => (
         <SkillGroup key={group.title} title={group.title}>

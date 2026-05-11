@@ -21,7 +21,29 @@
   border-color: var(--accent);
 }
 
-/* Accent variant — red-tinted, used for the Programming group. */
+/* tags with a description - pointer cursor + a small dot indicator */
+.tag.has-desc {
+  cursor: pointer;
+}
+.tag.has-desc::after {
+  content: "•";
+  font-size: 8px;
+  margin-left: 5px;
+  opacity: 0.45;
+  vertical-align: super;
+}
+
+/* active/open state - stays highlighted instead of reverting */
+.tag.is-open {
+  background: var(--accent);
+  color: var(--bg);
+  border-color: var(--accent);
+}
+.tag.is-open::after {
+  opacity: 0.7;
+}
+
+/* Accent variant - red-tinted, used for the Programming group. */
 .tag.is-accent {
   background: rgba(230, 0, 0, 0.09);
   color: var(--accent);
@@ -30,4 +52,22 @@
 .tag.is-accent:hover {
   background: var(--accent);
   color: var(--bg);
+}
+
+/* the popover box - portalled to body so it never gets clipped by a parent container */
+.tag-popover {
+  position: fixed; /* viewport coords set via inline style from JS */
+  z-index: 100;
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 9px 12px;
+  font-family: var(--body);
+  font-size: 14px;
+  color: var(--sub);
+  white-space: normal;
+  max-width: min(320px, calc(100vw - 16px));
+  line-height: 1.55;
+  pointer-events: none;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.35);
 }

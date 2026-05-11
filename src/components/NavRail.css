@@ -6,6 +6,7 @@
   flex-direction: column;
   align-items: center;
   padding-top: 48px;
+  padding-bottom: 16px;
   gap: 6px;
   flex-shrink: 0;
 }
@@ -26,13 +27,18 @@
   transition: all 0.18s;
 }
 .nav-btn:hover {
-  background: #1a1c22;
+  background: var(--nav-hover);
   color: var(--accent);
 }
 .nav-btn.is-active {
-  background: #1a1c22;
+  background: var(--nav-hover);
   color: var(--accent);
   border-left-color: var(--accent);
+}
+
+/* push the theme toggle to the bottom of the rail */
+.nav-theme-btn {
+  margin-top: auto;
 }
 
 /* Tooltip — floats left of the icon on hover.
@@ -98,6 +104,12 @@
   .nav-btn.is-active {
     border-left-color: transparent;
     border-top-color: var(--accent);
+  }
+
+  /* theme button doesnt need special treatment on mobile -
+     it just sits at the end of the tab bar like any other button */
+  .nav-theme-btn {
+    margin-top: 0;
   }
 
   /* no hover tooltips on touch screens */
